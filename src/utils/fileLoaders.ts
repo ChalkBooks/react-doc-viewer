@@ -23,7 +23,9 @@ const _fileLoader: BaseFileLoaderFunction = ({
   readerTypeFunction,
   headers,
 }) => {
+  headers['credentials'] = 'include';
   return fetch(documentURI, { signal, headers })
+    
     .then(async (res) => {
       const blob = await res.blob();
 
